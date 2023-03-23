@@ -24,13 +24,15 @@ public class MathCalculator {
                 break;
             case 3:
                 //multiply method
-                int multiplication=Multiply(num1,num2);
+                int multiplication=multiply(num1,num2);
                 break;
             case 4:
                 //divide method
+                int division=divide(num1,num2);
                 break;
             case 5:
                 //modulus method
+                int modulus=modula(num1,num2);
                 break;
             case 6:
                 //factorial method
@@ -45,11 +47,27 @@ public class MathCalculator {
     //addition method
     //subtraction method
     //multiplication method 
-    static int Multiply(int a, int b){
+    static int multiply(int a, int b){
         return a*b;
     }
+   
     //division method
+    static int divide(int a, int b){
+		if (b == 0) {
+			System.out.println ("cannot divide by 0");
+			result = "error";
+		} 
+			else {
+				result = a / b;
+			}
+	return result;
+	}
+   
     //modulus method
+    static int modula(int a, int b){
+		return a % b;
+    }    
+    
     //factorial method
     //power(exponential)
 }
