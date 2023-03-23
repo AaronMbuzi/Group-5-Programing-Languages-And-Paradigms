@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class MathCalculator {
     public static void main(String[]args){
         //scanner can come here
