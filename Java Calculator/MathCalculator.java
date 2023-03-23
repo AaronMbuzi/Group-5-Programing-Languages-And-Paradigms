@@ -44,8 +44,7 @@ public class MathCalculator {
                 System.out.println("You may have entered an Incorrect operation");
         }
     }
-    // New comment
-    //addition method (for two numbers)
+    //addition method
     //naming method
        private add(int num1, int num2){
        int result = num1+num2; //declared a variable result
