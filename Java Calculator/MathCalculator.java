@@ -6,6 +6,9 @@ public class MathCalculator {
     //addition method
     //subtraction method
     //multiplication method 
+    static int Multiply(int a, int b){
+        return a*b;
+    }
     //division method
     //modulus method
     //factorial method
