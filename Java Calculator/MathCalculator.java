@@ -46,7 +46,7 @@ public class MathCalculator {
     }
     //addition method
     //naming method
-       private add(int num1, int num2){
+       private add(int a, int b){
        int result = num1+num2; //declared a variable result
         return result;
         System.out.println(result);
