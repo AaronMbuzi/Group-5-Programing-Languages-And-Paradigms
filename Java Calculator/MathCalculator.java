@@ -21,6 +21,7 @@ public class MathCalculator {
                 break;
             case 2:
                 //subtract method
+		int subraction = subtract(int a, int b);
                 break;
             case 3:
                 //multiply method
