@@ -58,9 +58,9 @@ public class MathCalculator {
 			return result;
 			System.out.println(result);
 		}else{
-			int result =num2-num1;
+			int result =num2-num1; 
 			return result;
-			System.out.println("-"result);
+			System.out.println("-"result); // for negative differences
 			
 		}
 	}
