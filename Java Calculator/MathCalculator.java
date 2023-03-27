@@ -1,120 +1,91 @@
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-public class ArithmeticCalculatorGUI extends JFrame implements ActionListener {
-
-    private static final long serialVersionUID = 1L;
-
-    private JTextField firstNumberField;
-    private JTextField secondNumberField;
-    private JTextField resultField;
-
-    public ArithmeticCalculatorGUI() {
-        // Set up the GUI components
-        JPanel inputPanel = new JPanel(new GridLayout(3, 2));
-        inputPanel.add(new JLabel("First Number: "));
-        firstNumberField = new JTextField(10);
-        inputPanel.add(firstNumberField);
-        inputPanel.add(new JLabel("Second Number: "));
-        secondNumberField = new JTextField(10);
-        inputPanel.add(secondNumberField);
-        inputPanel.add(new JLabel("Result: "));
-        resultField = new JTextField(10);
-        resultField.setEditable(false);
-        inputPanel.add(resultField);
-
-        JPanel buttonPanel = new JPanel(new GridLayout(2, 3));
-        JButton addButton = new JButton("Add");
-        addButton.addActionListener(this);
-        buttonPanel.add(addButton);
-        JButton subtractButton = new JButton("Subtract");
-        subtractButton.addActionListener(this);
-        buttonPanel.add(subtractButton);
-        JButton multiplyButton = new JButton("Multiply");
-        multiplyButton.addActionListener(this);
-        buttonPanel.add(multiplyButton);
-        JButton mod = new JButton("mod");
-        mod.addActionListener(this);
-        buttonPanel.add(mod); 
-        JButton divideButton = new JButton("Divide");
-        divideButton.addActionListener(this);
-        buttonPanel.add(divideButton);
-        JButton clearButton = new JButton("Clear");
-        clearButton.addActionListener(this);
-        buttonPanel.add(clearButton);
-        JButton exitButton = new JButton("Exit");
-        exitButton.addActionListener(this);
-        buttonPanel.add(exitButton);
-        JButton expButton = new JButton("Exp");
-        expButton.addActionListener(this);
-        buttonPanel.add(expButton);
-        // Add the components to the frame
-        add(inputPanel, BorderLayout.NORTH);
-        add(buttonPanel, BorderLayout.CENTER);
-
-        // Set up the frame
-        setTitle("GROUP 5 MATH CALCULATOR");
-        setSize(400, 200);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // Get the first and second numbers from the text fields
-        double firstNumber = Double.parseDouble(firstNumberField.getText());
-        double secondNumber = Double.parseDouble(secondNumberField.getText());
-
-        // Perform the operation based on which button was clicked
-        String action = e.getActionCommand();
-        switch (action) {
-            case "Add":
-                resultField.setText(Double.toString(firstNumber + secondNumber));
+public class MathCalculator {
+    public static void main(String[]args){
+        //scanner can come here
+        Scanner input= new Scanner(System.in);
+        int num1;
+        int num2;
+        int operator;
+        System.out.println("Insert your first  number: ");
+        num1=input.nextInt();
+        System.out.println("Insert your second number: ");
+        num2=input.nextInt();
+        System.out.println("Choose an operator from the following: " );
+        System.out.println("1.ADD , 2.SUB , 3.MULT , 4.DIV , 5.MOD , 6.FACT , 7.POW");
+        operator= input.nextInt();
+        
+        
+        //Switch statement goes here(In the switch statement we call the respective methods within the cases)
+        switch (operator) {
+            case 1:
+                int addition=add(num1,num2);//addition method
                 break;
-            case "Subtract":
-                resultField.setText(Double.toString(firstNumber - secondNumber));
+            case 2:
+                //subtract method
                 break;
-            case "Multiply":
-                resultField.setText(Double.toString(firstNumber * secondNumber));
+            case 3:
+                //multiply method
+                int multiplication=multiply(num1,num2);
                 break;
-            case "mod":
-                resultField.setText(Double.toString(firstNumber % secondNumber));
+            case 4:
+                //divide method
+                int division=divide(num1,num2);
                 break;
-            case "Exp":
-                resultField.setText(Double.toString(Math.pow(firstNumber, secondNumber)));
+            case 5:
+                //modulus method
+                int modulus=modula(num1,num2);
                 break;
-            
-            case "Divide":
-                if (secondNumber == 0) {
-                    resultField.setText("Cannot divide by zero");
-                } else {
-                    resultField.setText(Double.toString(firstNumber / secondNumber));
-                }
+            case 6:
+                //factorial method
                 break;
-            case "Clear":
-                firstNumberField.setText("");
-                secondNumberField.setText("");
-                resultField.setText("");
-                break;
-            case "Exit":
-                System.exit(0);
+            case 7:
+                //power method
                 break;
             default:
-                break;
+                System.out.println("You may have entered an Incorrect operation");
         }
     }
-
-    public static void main(String[] args) {
-        ArithmeticCalculatorGUI calculator = new ArithmeticCalculatorGUI();
-        calculator.setVisible(true);
+    //addition method
+    //naming method
+       private add(int a, int b){
+       int result = num1+num2; //declared a variable result
+        return result;
+        System.out.println(result);
+       };
+    //subtraction method
+	private subtract(int a, int b){
+		if(num1>num2){
+			int result = num1-num2;
+			return result;
+			System.out.println(result);
+		}else{
+			int result = num2-num1;
+			return result;
+			System.out.println("-"result); // for negative difference
+			
+		}
+	};
+    //multiplication method 
+    static int multiply(int a, int b){
+        return a*b;
     }
-
+   
+    //division method
+    static int divide(int a, int b){
+		if (b == 0) {
+			System.out.println ("cannot divide by 0");
+			result = "error";
+		} 
+			else {
+				result = a / b;
+			}
+	return result;
+	}
+   
+    //modulus method
+    static int modula(int a, int b){
+		return a % b;
+    }    
+    
+    //factorial method
+    //power(exponential)
 }
