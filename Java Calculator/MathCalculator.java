@@ -46,12 +46,24 @@ public class MathCalculator {
     }
     //addition method
     //naming method
-       private add(int num1, int num2){
+       private add(int a, int b){
        int result = num1+num2; //declared a variable result
         return result;
         System.out.println(result);
        };
     //subtraction method
+	private subtract(int a, int b){
+		if(num1>num2){
+			int result = num1-num2;
+			return result;
+			System.out.println(result);
+		}else{
+			int result = num2-num1;
+			return result;
+			System.out.println("-"result); // for negative difference
+			
+		}
+	};
     //multiplication method 
     static int multiply(int a, int b){
         return a*b;
