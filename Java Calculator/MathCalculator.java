@@ -37,9 +37,11 @@ public class MathCalculator {
                 break;
             case 6:
                 //factorial method
+			int Factorials(num1, num2);
                 break;
             case 7:
                 //power method
+			int exponent(num1, num2);
                 break;
             default:
                 System.out.println("You may have entered an Incorrect operation");
@@ -88,5 +90,26 @@ public class MathCalculator {
     }    
     
     //factorial method
+	static void Factorials(int n1, int n2) {
+    int factorial1 = 1;
+    int factorial2 = 1;
+    
+    for (int i = n1; i > 0; i--) {
+        factorial1 *= i;
+    }
+    for (int i = n2; i > 0; i--) {
+        factorial2 *= i;
+    }
+    
+    System.out.println("Factorial of " + n1 + " is: " + factorial1);
+    System.out.println("Factorial of " + n2 + " is: " + factorial2);
+}
     //power(exponential)
+	static int exponent(int base, int exponent) {
+    if (exponent == 0) {
+        return 1;
+    } else {
+        return base * exponent(base, exponent - 1);
+    }
+}
 }
