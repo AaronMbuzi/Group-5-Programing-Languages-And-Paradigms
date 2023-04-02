@@ -1,0 +1,766 @@
+---
+root(Type=CompilationUnit): 
+    packageDeclaration(Type=PackageDeclaration): 
+        name(Type=Name): 
+            identifier: "javacalculator"
+            qualifier(Type=Name): 
+                identifier: "mycompany"
+                qualifier(Type=Name): 
+                    identifier: "com"
+    comment(Type=BlockComment): 
+        content: "\n * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license\n "
+    imports: 
+        - import(Type=ImportDeclaration): 
+            isAsterisk: "false"
+            isStatic: "false"
+            name(Type=Name): 
+                identifier: "Scanner"
+                qualifier(Type=Name): 
+                    identifier: "util"
+                    qualifier(Type=Name): 
+                        identifier: "java"
+    types: 
+        - type(Type=ClassOrInterfaceDeclaration): 
+            isInterface: "false"
+            name(Type=SimpleName): 
+                identifier: "JavaCalculator"
+            comment(Type=JavadocComment): 
+                content: "\n *\n * @author Default\n "
+            members: 
+                - member(Type=MethodDeclaration): 
+                    body(Type=BlockStmt): 
+                        statements: 
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=VariableDeclarationExpr): 
+                                    variables: 
+                                        - variable(Type=VariableDeclarator): 
+                                            initializer(Type=ObjectCreationExpr): 
+                                                type(Type=ClassOrInterfaceType): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "Scanner"
+                                                arguments: 
+                                                    - argument(Type=FieldAccessExpr): 
+                                                        name(Type=SimpleName): 
+                                                            identifier: "in"
+                                                        scope(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "System"
+                                            name(Type=SimpleName): 
+                                                identifier: "input"
+                                            type(Type=ClassOrInterfaceType): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "Scanner"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=VariableDeclarationExpr): 
+                                    variables: 
+                                        - variable(Type=VariableDeclarator): 
+                                            name(Type=SimpleName): 
+                                                identifier: "num1"
+                                            type(Type=PrimitiveType): 
+                                                type: "DOUBLE"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=VariableDeclarationExpr): 
+                                    variables: 
+                                        - variable(Type=VariableDeclarator): 
+                                            name(Type=SimpleName): 
+                                                identifier: "num2"
+                                            type(Type=PrimitiveType): 
+                                                type: "DOUBLE"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=VariableDeclarationExpr): 
+                                    variables: 
+                                        - variable(Type=VariableDeclarator): 
+                                            name(Type=SimpleName): 
+                                                identifier: "operator"
+                                            type(Type=PrimitiveType): 
+                                                type: "INT"
+                                comment(Type=LineComment): 
+                                    content: " yes here we can use int because its more like a map"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=MethodCallExpr): 
+                                    name(Type=SimpleName): 
+                                        identifier: "println"
+                                    scope(Type=FieldAccessExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "out"
+                                        scope(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "System"
+                                    arguments: 
+                                        - argument(Type=StringLiteralExpr): 
+                                            value: "Insert your first  number: "
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "ASSIGN"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "num1"
+                                    value(Type=MethodCallExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "nextInt"
+                                        scope(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "input"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=MethodCallExpr): 
+                                    name(Type=SimpleName): 
+                                        identifier: "println"
+                                    scope(Type=FieldAccessExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "out"
+                                        scope(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "System"
+                                    arguments: 
+                                        - argument(Type=StringLiteralExpr): 
+                                            value: "Insert your second number: "
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "ASSIGN"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "num2"
+                                    value(Type=MethodCallExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "nextInt"
+                                        scope(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "input"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=MethodCallExpr): 
+                                    name(Type=SimpleName): 
+                                        identifier: "println"
+                                    scope(Type=FieldAccessExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "out"
+                                        scope(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "System"
+                                    arguments: 
+                                        - argument(Type=StringLiteralExpr): 
+                                            value: "Choose an operator from the following: "
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=MethodCallExpr): 
+                                    name(Type=SimpleName): 
+                                        identifier: "println"
+                                    scope(Type=FieldAccessExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "out"
+                                        scope(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "System"
+                                    arguments: 
+                                        - argument(Type=StringLiteralExpr): 
+                                            value: "1.ADD , 2.SUB , 3.MULT , 4.DIV , 5.MOD , 6.FACT , 7.POW , 8.factorial"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "ASSIGN"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "operator"
+                                    value(Type=MethodCallExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "nextInt"
+                                        scope(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "input"
+                            - statement(Type=SwitchStmt): 
+                                selector(Type=NameExpr): 
+                                    name(Type=SimpleName): 
+                                        identifier: "operator"
+                                comment(Type=LineComment): 
+                                    content: "Switch statement goes here(In the switch statement we call the respective methods within the cases)"
+                                entries: 
+                                    - entrie(Type=SwitchEntry): 
+                                        type: "STATEMENT_GROUP"
+                                        labels: 
+                                            - label(Type=IntegerLiteralExpr): 
+                                                value: "1"
+                                        statements: 
+                                            - statement(Type=ExpressionStmt): 
+                                                expression(Type=MethodCallExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "add"
+                                                    arguments: 
+                                                        - argument(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "num1"
+                                                        - argument(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "num2"
+                                                comment(Type=LineComment): 
+                                                    content: "addition method"
+                                            - statement(Type=BreakStmt): 
+                                    - entrie(Type=SwitchEntry): 
+                                        type: "STATEMENT_GROUP"
+                                        labels: 
+                                            - label(Type=IntegerLiteralExpr): 
+                                                value: "2"
+                                        statements: 
+                                            - statement(Type=ExpressionStmt): 
+                                                expression(Type=MethodCallExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "subtract"
+                                                    arguments: 
+                                                        - argument(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "num1"
+                                                        - argument(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "num2"
+                                            - statement(Type=BreakStmt): 
+                                    - entrie(Type=SwitchEntry): 
+                                        type: "STATEMENT_GROUP"
+                                        labels: 
+                                            - label(Type=IntegerLiteralExpr): 
+                                                value: "3"
+                                        statements: 
+                                            - statement(Type=ExpressionStmt): 
+                                                expression(Type=MethodCallExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "multiply"
+                                                    arguments: 
+                                                        - argument(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "num1"
+                                                        - argument(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "num2"
+                                                comment(Type=LineComment): 
+                                                    content: "multiply method"
+                                            - statement(Type=BreakStmt): 
+                                    - entrie(Type=SwitchEntry): 
+                                        type: "STATEMENT_GROUP"
+                                        labels: 
+                                            - label(Type=IntegerLiteralExpr): 
+                                                value: "4"
+                                        statements: 
+                                            - statement(Type=ExpressionStmt): 
+                                                expression(Type=MethodCallExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "divide"
+                                                    arguments: 
+                                                        - argument(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "num1"
+                                                        - argument(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "num2"
+                                                comment(Type=LineComment): 
+                                                    content: " we just call the method without wasting resources"
+                                            - statement(Type=BreakStmt): 
+                                    - entrie(Type=SwitchEntry): 
+                                        type: "STATEMENT_GROUP"
+                                        labels: 
+                                            - label(Type=IntegerLiteralExpr): 
+                                                value: "5"
+                                        statements: 
+                                            - statement(Type=ExpressionStmt): 
+                                                expression(Type=MethodCallExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "modula"
+                                                    arguments: 
+                                                        - argument(Type=CastExpr): 
+                                                            expression(Type=NameExpr): 
+                                                                name(Type=SimpleName): 
+                                                                    identifier: "num1"
+                                                            type(Type=PrimitiveType): 
+                                                                type: "INT"
+                                                        - argument(Type=CastExpr): 
+                                                            expression(Type=NameExpr): 
+                                                                name(Type=SimpleName): 
+                                                                    identifier: "num2"
+                                                            type(Type=PrimitiveType): 
+                                                                type: "INT"
+                                                comment(Type=LineComment): 
+                                                    content: " have just casted these so that we only deal with integers when we are dealing with mod"
+                                            - statement(Type=BreakStmt): 
+                                    - entrie(Type=SwitchEntry): 
+                                        type: "STATEMENT_GROUP"
+                                        labels: 
+                                            - label(Type=IntegerLiteralExpr): 
+                                                value: "6"
+                                        statements: 
+                                            - statement(Type=BreakStmt): 
+                                                comment(Type=LineComment): 
+                                                    content: "factorial method"
+                                    - entrie(Type=SwitchEntry): 
+                                        type: "STATEMENT_GROUP"
+                                        labels: 
+                                            - label(Type=IntegerLiteralExpr): 
+                                                value: "7"
+                                        statements: 
+                                            - statement(Type=ExpressionStmt): 
+                                                expression(Type=MethodCallExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "power"
+                                                    arguments: 
+                                                        - argument(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "num1"
+                                                        - argument(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "num2"
+                                            - statement(Type=BreakStmt): 
+                                    - entrie(Type=SwitchEntry): 
+                                        type: "STATEMENT_GROUP"
+                                        labels: 
+                                            - label(Type=IntegerLiteralExpr): 
+                                                value: "8"
+                                        statements: 
+                                            - statement(Type=ExpressionStmt): 
+                                                expression(Type=MethodCallExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "factorial"
+                                                    arguments: 
+                                                        - argument(Type=CastExpr): 
+                                                            expression(Type=EnclosedExpr): 
+                                                                inner(Type=NameExpr): 
+                                                                    name(Type=SimpleName): 
+                                                                        identifier: "num1"
+                                                            type(Type=PrimitiveType): 
+                                                                type: "INT"
+                                            - statement(Type=BreakStmt): 
+                                    - entrie(Type=SwitchEntry): 
+                                        type: "STATEMENT_GROUP"
+                                        statements: 
+                                            - statement(Type=ExpressionStmt): 
+                                                expression(Type=MethodCallExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "println"
+                                                    scope(Type=FieldAccessExpr): 
+                                                        name(Type=SimpleName): 
+                                                            identifier: "out"
+                                                        scope(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "System"
+                                                    arguments: 
+                                                        - argument(Type=StringLiteralExpr): 
+                                                            value: "You may have entered an Incorrect operation"
+                    type(Type=VoidType): 
+                    name(Type=SimpleName): 
+                        identifier: "main"
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PUBLIC"
+                        - modifier(Type=Modifier): 
+                            keyword: "STATIC"
+                    parameters: 
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "args"
+                            type(Type=ArrayType): 
+                                origin: "TYPE"
+                                componentType(Type=ClassOrInterfaceType): 
+                                    name(Type=SimpleName): 
+                                        identifier: "String"
+                - member(Type=MethodDeclaration): 
+                    body(Type=BlockStmt): 
+                        statements: 
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=MethodCallExpr): 
+                                    name(Type=SimpleName): 
+                                        identifier: "println"
+                                    scope(Type=FieldAccessExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "out"
+                                        scope(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "System"
+                                    arguments: 
+                                        - argument(Type=BinaryExpr): 
+                                            operator: "PLUS"
+                                            left(Type=NameExpr): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "a"
+                                            right(Type=NameExpr): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "b"
+                                comment(Type=LineComment): 
+                                    content: "     int result = num1+num2; declared a variable result"
+                    type(Type=VoidType): 
+                    name(Type=SimpleName): 
+                        identifier: "add"
+                    comment(Type=LineComment): 
+                        content: "naming method"
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PUBLIC"
+                        - modifier(Type=Modifier): 
+                            keyword: "STATIC"
+                    parameters: 
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "a"
+                            type(Type=PrimitiveType): 
+                                type: "DOUBLE"
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "b"
+                            type(Type=PrimitiveType): 
+                                type: "DOUBLE"
+                - member(Type=MethodDeclaration): 
+                    body(Type=BlockStmt): 
+                        statements: 
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=MethodCallExpr): 
+                                    name(Type=SimpleName): 
+                                        identifier: "println"
+                                    scope(Type=FieldAccessExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "out"
+                                        scope(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "System"
+                                    arguments: 
+                                        - argument(Type=BinaryExpr): 
+                                            operator: "MINUS"
+                                            left(Type=NameExpr): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "a"
+                                            right(Type=NameExpr): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "b"
+                    type(Type=VoidType): 
+                    name(Type=SimpleName): 
+                        identifier: "subtract"
+                    comment(Type=LineComment): 
+                        content: "subtraction method"
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PRIVATE"
+                        - modifier(Type=Modifier): 
+                            keyword: "STATIC"
+                    parameters: 
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "a"
+                            type(Type=PrimitiveType): 
+                                type: "DOUBLE"
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "b"
+                            type(Type=PrimitiveType): 
+                                type: "DOUBLE"
+                - member(Type=MethodDeclaration): 
+                    body(Type=BlockStmt): 
+                        statements: 
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=MethodCallExpr): 
+                                    name(Type=SimpleName): 
+                                        identifier: "println"
+                                    scope(Type=FieldAccessExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "out"
+                                        scope(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "System"
+                                    arguments: 
+                                        - argument(Type=BinaryExpr): 
+                                            operator: "MULTIPLY"
+                                            left(Type=NameExpr): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "a"
+                                            right(Type=NameExpr): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "b"
+                                comment(Type=LineComment): 
+                                    content: " return a*b; since we are not using the number, we can save some computing power ad just display it"
+                    type(Type=VoidType): 
+                    name(Type=SimpleName): 
+                        identifier: "multiply"
+                    comment(Type=LineComment): 
+                        content: "multiplication method "
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PUBLIC"
+                        - modifier(Type=Modifier): 
+                            keyword: "STATIC"
+                    parameters: 
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "a"
+                            type(Type=PrimitiveType): 
+                                type: "DOUBLE"
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "b"
+                            type(Type=PrimitiveType): 
+                                type: "DOUBLE"
+                - member(Type=MethodDeclaration): 
+                    body(Type=BlockStmt): 
+                        statements: 
+                            - statement(Type=IfStmt): 
+                                condition(Type=BinaryExpr): 
+                                    operator: "EQUALS"
+                                    left(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "b"
+                                    right(Type=IntegerLiteralExpr): 
+                                        value: "0"
+                                elseStmt(Type=BlockStmt): 
+                                    statements: 
+                                        - statement(Type=ExpressionStmt): 
+                                            expression(Type=MethodCallExpr): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "println"
+                                                scope(Type=FieldAccessExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "out"
+                                                    scope(Type=NameExpr): 
+                                                        name(Type=SimpleName): 
+                                                            identifier: "System"
+                                                arguments: 
+                                                    - argument(Type=BinaryExpr): 
+                                                        operator: "DIVIDE"
+                                                        left(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "a"
+                                                        right(Type=NameExpr): 
+                                                            name(Type=SimpleName): 
+                                                                identifier: "b"
+                                            comment(Type=LineComment): 
+                                                content: " we just display it on console"
+                                thenStmt(Type=BlockStmt): 
+                                    statements: 
+                                        - statement(Type=ExpressionStmt): 
+                                            expression(Type=MethodCallExpr): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "println"
+                                                scope(Type=FieldAccessExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "out"
+                                                    scope(Type=NameExpr): 
+                                                        name(Type=SimpleName): 
+                                                            identifier: "System"
+                                                arguments: 
+                                                    - argument(Type=StringLiteralExpr): 
+                                                        value: "cannot divide by 0"
+                                comment(Type=LineComment): 
+                                    content: " we can make this method void since we are it getting any return from the method"
+                    type(Type=VoidType): 
+                    name(Type=SimpleName): 
+                        identifier: "divide"
+                    comment(Type=LineComment): 
+                        content: "division method"
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "STATIC"
+                    parameters: 
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "a"
+                            type(Type=PrimitiveType): 
+                                type: "DOUBLE"
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "b"
+                            type(Type=PrimitiveType): 
+                                type: "DOUBLE"
+                - member(Type=MethodDeclaration): 
+                    body(Type=BlockStmt): 
+                        statements: 
+                            - statement(Type=ReturnStmt): 
+                                expression(Type=BinaryExpr): 
+                                    operator: "REMAINDER"
+                                    left(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "a"
+                                    right(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "b"
+                    type(Type=PrimitiveType): 
+                        type: "INT"
+                    name(Type=SimpleName): 
+                        identifier: "modula"
+                    comment(Type=LineComment): 
+                        content: "modulus method"
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "STATIC"
+                    parameters: 
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "a"
+                            type(Type=PrimitiveType): 
+                                type: "INT"
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "b"
+                            type(Type=PrimitiveType): 
+                                type: "INT"
+                - member(Type=MethodDeclaration): 
+                    body(Type=BlockStmt): 
+                        statements: 
+                            - statement(Type=IfStmt): 
+                                condition(Type=BinaryExpr): 
+                                    operator: "LESS"
+                                    left(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "a"
+                                    right(Type=IntegerLiteralExpr): 
+                                        value: "0"
+                                thenStmt(Type=BlockStmt): 
+                                    statements: 
+                                        - statement(Type=ExpressionStmt): 
+                                            expression(Type=MethodCallExpr): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "println"
+                                                scope(Type=FieldAccessExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "out"
+                                                    scope(Type=NameExpr): 
+                                                        name(Type=SimpleName): 
+                                                            identifier: "System"
+                                                arguments: 
+                                                    - argument(Type=StringLiteralExpr): 
+                                                        value: "invalid input"
+                                        - statement(Type=ReturnStmt): 
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=VariableDeclarationExpr): 
+                                    variables: 
+                                        - variable(Type=VariableDeclarator): 
+                                            initializer(Type=IntegerLiteralExpr): 
+                                                value: "1"
+                                            name(Type=SimpleName): 
+                                                identifier: "answer"
+                                            type(Type=PrimitiveType): 
+                                                type: "INT"
+                            - statement(Type=EmptyStmt): 
+                            - statement(Type=ForStmt): 
+                                body(Type=BlockStmt): 
+                                    statements: 
+                                        - statement(Type=ExpressionStmt): 
+                                            expression(Type=AssignExpr): 
+                                                operator: "MULTIPLY"
+                                                target(Type=NameExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "answer"
+                                                value(Type=NameExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "i"
+                                compare(Type=BinaryExpr): 
+                                    operator: "GREATER"
+                                    left(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "i"
+                                    right(Type=IntegerLiteralExpr): 
+                                        value: "1"
+                                initialization: 
+                                    - initialization(Type=VariableDeclarationExpr): 
+                                        variables: 
+                                            - variable(Type=VariableDeclarator): 
+                                                initializer(Type=NameExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "a"
+                                                name(Type=SimpleName): 
+                                                    identifier: "i"
+                                                type(Type=PrimitiveType): 
+                                                    type: "INT"
+                                update: 
+                                    - update(Type=UnaryExpr): 
+                                        operator: "POSTFIX_DECREMENT"
+                                        expression(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "i"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=MethodCallExpr): 
+                                    name(Type=SimpleName): 
+                                        identifier: "println"
+                                    scope(Type=FieldAccessExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "out"
+                                        scope(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "System"
+                                    arguments: 
+                                        - argument(Type=BinaryExpr): 
+                                            operator: "PLUS"
+                                            left(Type=BinaryExpr): 
+                                                operator: "PLUS"
+                                                left(Type=NameExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "a"
+                                                right(Type=StringLiteralExpr): 
+                                                    value: "! = "
+                                            right(Type=NameExpr): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "answer"
+                    type(Type=VoidType): 
+                    name(Type=SimpleName): 
+                        identifier: "factorial"
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PUBLIC"
+                        - modifier(Type=Modifier): 
+                            keyword: "STATIC"
+                    parameters: 
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "a"
+                            type(Type=PrimitiveType): 
+                                type: "INT"
+                - member(Type=MethodDeclaration): 
+                    body(Type=BlockStmt): 
+                        statements: 
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=MethodCallExpr): 
+                                    name(Type=SimpleName): 
+                                        identifier: "println"
+                                    scope(Type=FieldAccessExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "out"
+                                        scope(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "System"
+                                    arguments: 
+                                        - argument(Type=MethodCallExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "pow"
+                                            scope(Type=NameExpr): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "Math"
+                                            arguments: 
+                                                - argument(Type=NameExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "a"
+                                                - argument(Type=NameExpr): 
+                                                    name(Type=SimpleName): 
+                                                        identifier: "b"
+                    type(Type=VoidType): 
+                    name(Type=SimpleName): 
+                        identifier: "power"
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PUBLIC"
+                        - modifier(Type=Modifier): 
+                            keyword: "STATIC"
+                    parameters: 
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "a"
+                            type(Type=PrimitiveType): 
+                                type: "DOUBLE"
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "b"
+                            type(Type=PrimitiveType): 
+                                type: "DOUBLE"
+            modifiers: 
+                - modifier(Type=Modifier): 
+                    keyword: "PUBLIC"
+...
