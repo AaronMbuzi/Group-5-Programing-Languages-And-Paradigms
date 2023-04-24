@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<script src="Tracery.js"></script>
+		<script src=grammars.js></script>
+       
+       
+        <title>context Free Grammar Generator</title>
+         
+        <script src='index.js'></script>
+
+    </head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d3bebe;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+        
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0066cc;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #e27373;
+        }
+        
+        .error {
+            color: #cc0000;
+            font-weight: bold;
+        }
+    </style>
+    
+    
+        <body>
+            <h1 id="h1">funny jokes</h1>
+            <button id="generate" onclick="generate()">GENERATE A JOKE</button>
+            <div id="sentences">
+    
+            </div>
+        </body>
+    
+</html>
