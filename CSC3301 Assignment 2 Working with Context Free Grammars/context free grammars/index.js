@@ -2,10 +2,10 @@ let sentences = []
 function generate(){
 var rules = {
     "origin": ["#sentence.capitalize#"],
-    "sentence": ["Why don't scientists trust atoms? Because they #pun#.", "I told my wife she was drawing her eyebrows too high. She looked #adverb# surprised.", "Why did the tomato turn red? Because it saw the #object#."],
+    "sentence": ["Why don't scientists trust atoms? Because they #pun#.", "I told my wife she was drawing her eyebrows too high. She looked #adverb# surprised.", "Why did the tomato turn red? Because it saw the #object#.", "Why did the chicken join a band? Because it already had #object#!"],
     "pun": ["make up everything", "have no vision", "fall for anything"],
     "adverb": ["shocked", "surprised", "astonished"],
-    "object": ["ketchup", "salad", "frying pan"]
+    "object": ["ketchup", "salad", "frying pan", "drumsticks"]
   }
 
 
