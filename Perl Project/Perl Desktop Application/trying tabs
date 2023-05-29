@@ -152,7 +152,6 @@ sub select_display_file {
         $display_text_widget->insert('1.0', @lines);
     }
 }
-my $label4 = $tab4->Label(-text => "Content for Tab 4")->pack(-padx => 10, -pady => 10);
 
 # Create Tab 5
 my $tab5 = $notebook->add("Tab 5", -label => "Tab 5");
