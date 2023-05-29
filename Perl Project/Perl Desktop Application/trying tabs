@@ -125,12 +125,6 @@ sub save_file {
 }
 
 # Create Tab 3
-my $tab3 = $notebook->add("Tab 3", -label => "Tab 3");
-my $label3 = $tab3->Label(-text => "Content for Tab 3")->pack(-padx => 10, -pady => 10);
-
-# Create Tab 4
-my $tab4 = $notebook->add("Tab 4", -label => "Tab 4");
-# Create Tab 4
 my $tab3 = $notebook->add("Tab 3", -label => "File Display");
 
 # Select File Button
