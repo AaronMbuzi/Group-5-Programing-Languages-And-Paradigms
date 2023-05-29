@@ -126,16 +126,20 @@ sub save_file {
 
 # Create Tab 3
 my $tab3 = $notebook->add("Tab 3", -label => "File Retrieval");
-my $label3 = $tab3->Label(-text => "Click the button to retrieve a file")->pack(-padx => 10, -pady => 10);
 
-# File Retrieval Button
+# File Retrieval Button
 $tab3->Button(
     -text    => "Retrieve File",
-    -command => \&tab3_action
+    -command => \&select_display_file
 )->pack(-padx => 10, -pady => 10);
 
-# Function to retrieve the Filesub tab3_action {
-    my $fs = $mw->FileSelect();
+my $display_text_widget = $tab3->Text()->pack(-fill => 'both', -expand => 1);
+
+# Function to retrieve the File
+sub select_display_file {
+    my $fs = $mw->FileSelect(
+        -directory => '/path/to/directory',  # Replace with the desired directory path
+    );
     my $selected_file = $fs->Show();
 
     if ($selected_file) {
@@ -145,10 +149,9 @@ $tab3->Button(
         close($fh);
 
         # Display the file content in the text widget
-        $text_widget->delete('1.0', 'end');
-        $text_widget->insert('1.0', @lines);
+         $display_text_widget->delete('1.0', 'end');
+        $display_text_widget->insert('1.0', @lines);
     }
-}
 
 # Create Tab 4
 my $tab4 = $notebook->add("Tab 4", -label => "Tab 4");
@@ -160,8 +163,10 @@ my $label5 = $tab5->Label(-text => "Content for Tab 5")->pack(-padx => 10, -pady
 
 # Create Tab 6
 my $tab6 = $notebook->add("Tab 6", -label => "Tab 6");
-my $label6 = $tab6->Label(-text => "Content for Tab 6")->pack(-padx => 10, -pady => 10);
-
+my $label6 = $tab6->Label(-text => "Content for Tab 6")->pack(-padx => 10, -pady => 10);
+
+
+
 sub tab2_action {
     # Action for Tab 2
     print "Clicked Tab 2\n";
