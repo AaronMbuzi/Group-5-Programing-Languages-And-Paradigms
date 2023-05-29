@@ -130,6 +130,34 @@ my $label3 = $tab3->Label(-text => "Content for Tab 3")->pack(-padx => 10, -pady
 
 # Create Tab 4
 my $tab4 = $notebook->add("Tab 4", -label => "Tab 4");
+# Create Tab 4
+my $tab3 = $notebook->add("Tab 3", -label => "File Display");
+
+# Select File Button
+$tab3->Button(
+    -text    => "Select File",
+    -command => \&select_display_file
+)->pack(-padx => 10, -pady => 10);
+
+# Text Widget for File Content
+my $display_text_widget = $tab3->Text()->pack(-fill => 'both', -expand => 1);
+
+# Select Display File Function
+sub select_display_file {
+    my $fs = $mw->FileSelect(
+        -directory => '/path/to/directory',  # Replace with the desired directory path
+    );
+    my $selected_file = $fs->Show();
+    
+    if ($selected_file) {
+        open(my $fh, '<', $selected_file) or die "Could not open file: $!";
+        my @lines = <$fh>;
+        close($fh);
+
+        $display_text_widget->delete('1.0', 'end');
+        $display_text_widget->insert('1.0', @lines);
+    }
+}
 my $label4 = $tab4->Label(-text => "Content for Tab 4")->pack(-padx => 10, -pady => 10);
 
 # Create Tab 5
@@ -138,8 +166,10 @@ my $label5 = $tab5->Label(-text => "Content for Tab 5")->pack(-padx => 10, -pady
 
 # Create Tab 6
 my $tab6 = $notebook->add("Tab 6", -label => "Tab 6");
-my $label6 = $tab6->Label(-text => "Content for Tab 6")->pack(-padx => 10, -pady => 10);
-
+my $label6 = $tab6->Label(-text => "Content for Tab 6")->pack(-padx => 10, -pady => 10);
+
+
+
 sub tab2_action {
     # Action for Tab 2
     print "Clicked Tab 2\n";
