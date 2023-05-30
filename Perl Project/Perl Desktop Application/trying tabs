@@ -178,22 +178,45 @@ sub search {
 
 # Create Tab 6
 #patrick paste here
-my $tab6 = $notebook->add("Tab 6", -label => "Tab 6");
+# Create Tab 6
+my $tab6 = $notebook->add("Tab 6", -label => "Directory Manipulation");
+
+# Source Directory Label and Entry Widget
+$tab6->Label(-text => "Source Directory:")->grid(-column => 0, -row => 0);
+my $source_dir_entry = $tab6->Entry()->grid(-column => 1, -row => 0);
+
+# Destination Directory Label and Entry Widget
+$tab6->Label(-text => "Destination Directory:")->grid(-column => 0, -row => 1);
+my $dest_dir_entry = $tab6->Entry()->grid(-column => 1, -row => 1);
+
+# File Name Label and Entry Widget
+$tab6->Label(-text => "File Name:")->grid(-column => 0, -row => 2);
+my $file_name_entry = $tab6->Entry()->grid(-column => 1, -row => 2);
+
+# File Type Label and Entry Widget
+$tab6->Label(-text => "File Type:")->grid(-column => 0, -row => 3);
+my $file_type_entry = $tab6->Entry()->grid(-column => 1, -row => 3);
+
+# Move File Button
+$tab6->Button(-text => "Move File", -command => \&move_file)->grid(-column => 0, -row => 4, -columnspan => 2);
+
 # Function to move a file
 sub move_file {
-    my $destination_directory = $directory_entry->get();
-    my $destination_path = $destination_directory . "\\" . $filename_entry->get() . "." . $filetype_entry->get();
+    my $source_directory = $source_dir_entry->get();
+    my $destination_directory = $dest_dir_entry->get();
+    my $filename = $file_name_entry->get();
+    my $filetype = $file_type_entry->get();
 
-    if (-e $selected_file) {
-        rename $selected_file, $destination_path or die "Could not move file: $!";
-        $selected_file = $destination_path;
+    my $source_path = $source_directory . "\\" . $filename . "." . $filetype;
+    my $destination_path = $destination_directory . "\\" . $filename . "." . $filetype;
 
-        $tab2->messageBox(-message => "File moved successfully!", -type => "ok");
+    if (-e $source_path) {
+        rename $source_path, $destination_path or die "Could not move file: $!";
+        $tab6->messageBox(-message => "File moved successfully!", -type => "ok");
     } else {
-        $tab2->messageBox(-message => "File does not exist!", -type => "error");
+        $tab6->messageBox(-message => "File does not exist!", -type => "error");
     }
 }
-
 
 # Create Tab 7
 #chansa paste here
