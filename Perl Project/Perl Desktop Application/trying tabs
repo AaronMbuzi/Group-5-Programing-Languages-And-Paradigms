@@ -175,12 +175,14 @@ sub search {
     }
 }
 
-#patrick paste here
+
 # Create Tab 6
+#patrick paste here
 my $tab6 = $notebook->add("Tab 6", -label => "Tab 6");
 my $label6 = $tab5->Label(-text => "Content for Tab 5")->pack(-padx => 10, -pady => 10);
 
 # Create Tab 7
+#chansa paste here
 my $tab7 = $notebook->add("Tab 7", -label => "Tab 7");
 my $label7 = $tab6->Label(-text => "Content for Tab 6")->pack(-padx => 10, -pady => 10);
 
