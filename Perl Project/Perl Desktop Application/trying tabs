@@ -94,6 +94,34 @@ sub save_file {
 }
 
 #alice paste here
+# Create Tab 3(Alice)
+my $tab3 = $notebook->add("Tab 3", -label => "File Display");
+
+# Select File Button
+$tab3->Button(
+    -text    => "Select File",
+    -command => \&select_display_file
+)->pack(-padx => 10, -pady => 10);
+
+# Text Widget for File Content
+my $display_text_widget = $tab3->Text()->pack(-fill => 'both', -expand => 1);
+
+# Select Display File Function
+sub select_display_file {
+    my $fs = $mw->FileSelect(
+        -directory => '/path/to/directory',  # Replace with the desired directory path
+    );
+    my $selected_file = $fs->Show();
+    
+    if ($selected_file) {
+        open(my $fh, '<', $selected_file) or die "Could not open file: $!";
+        my @lines = <$fh>;
+        close($fh);
+
+        $display_text_widget->delete('1.0', 'end');
+        $display_text_widget->insert('1.0', @lines);
+    }
+}
 
 # Create Tab 5 Nebert
 my $tab5 = $notebook->add("Tab 5", -label => "File Search");
