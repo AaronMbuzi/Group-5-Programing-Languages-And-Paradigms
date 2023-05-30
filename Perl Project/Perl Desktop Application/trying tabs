@@ -183,8 +183,59 @@ my $label6 = $tab5->Label(-text => "Content for Tab 5")->pack(-padx => 10, -pady
 
 # Create Tab 7
 #chansa paste here
-my $tab7 = $notebook->add("Tab 7", -label => "Tab 7");
-my $label7 = $tab6->Label(-text => "Content for Tab 6")->pack(-padx => 10, -pady => 10);
+my $tab7 = $notebook->add("Tab 7", -label => "File Organization");
+
+# Directory Label and Entry Widget
+$tab7->Label(-text => "Directory:")->pack(-side => 'left');
+my $org_directory_entry = $tab7->Entry(-width => 50);
+$org_directory_entry->pack(-side => 'left');
+
+# Order Label and OptionMenu Widget
+$tab7->Label(-text => "Order:")->pack(-side => 'left');
+my $order_var = 'Ascending';
+my $order_optionmenu = $tab7->Optionmenu(
+    -options  => ['Ascending', 'Descending'],
+    -variable => \$order_var,
+)->pack(-side => 'left');
+
+# Organize Button
+$tab7->Button(-text => "Organize Files", -command => \&organize_files)->pack(-side => 'left');
+
+# Function to organize files
+sub organize_files {
+    my $directory = $org_directory_entry->get();
+
+    # Check if the directory exists
+    if (-d $directory) {
+        opendir(my $dh, $directory) or die "Failed to open directory: $!";
+        my @files = readdir($dh);
+        closedir $dh;
+
+        # Remove '.' and '..' entries
+        @files = grep { !/^\.{1,2}$/ } @files;
+
+        # Sort the files
+        if ($order_var eq 'Ascending') {
+            @files = sort @files;
+        } elsif ($order_var eq 'Descending') {
+            @files = sort { lc($b) cmp lc($a) } @files;
+        }
+
+        # Move the files to the organized directory
+        my $organized_dir = "$directory/Organized";
+        mkdir $organized_dir unless -d $organized_dir;
+
+        foreach my $file (@files) {
+            my $src = "$directory/$file";
+            my $dest = "$organized_dir/$file";
+            move($src, $dest) or die "Failed to move file: $!";
+        }
+
+        $tab7->messageBox(-message => "Files organized successfully!", -type => "ok");
+    } else {
+        $tab7->messageBox(-message => "Invalid directory: $directory", -type => "ok");
+    }
+}
 
 # Start the Tk event loop
 MainLoop;
