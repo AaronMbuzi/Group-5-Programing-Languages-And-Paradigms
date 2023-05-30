@@ -5,7 +5,6 @@ use strict;
 use warnings;
 use Tk;
 use Cwd;
-use File::Copy;
 
 # Create the main window
 my $mw = MainWindow->new;
