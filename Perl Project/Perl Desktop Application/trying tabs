@@ -156,6 +156,32 @@ sub select_display_file {
 # Create Tab 5
 my $tab5 = $notebook->add("Tab 5", -label => "Tab 5");
 my $label5 = $tab5->Label(-text => "Content for Tab 5")->pack(-padx => 10, -pady => 10);
+# create label for directory input
+$mw->Label(-text=>"Enter directory:")->pack(-side=>'left');
+
+# create entry for directory input
+my $dir_entry = $mw->Entry(-width=>50);
+$dir_entry->pack(-side=>'left');
+
+# create label for file input
+$mw->Label(-text=>"Enter file name:")->pack(-side=>'left');
+
+# create entry for file input
+my $file_entry = $mw->Entry(-width=>20);
+$file_entry->pack(-side=>'left');
+
+# create button to search for file
+$mw->Button(-text=>'Search', -command=>\&search)->pack(-side=>'left');
+
+# create output text box
+my $output = $mw->Scrolled('Text', -scrollbars=>'se', -width=>50, -height=>15);
+$output->pack();
+
+# set default directory to current directory
+$dir_entry->insert(0, getcwd());
+
+# function to search for file
+sub
 
 # Create Tab 6
 my $tab6 = $notebook->add("Tab 6", -label => "Tab 6");
