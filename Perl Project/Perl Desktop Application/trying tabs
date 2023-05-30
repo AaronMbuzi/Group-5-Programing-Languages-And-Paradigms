@@ -95,7 +95,57 @@ sub save_file {
 
 #alice paste here
 
-#Nebert paste here
+# Create Tab 5 Nebert
+my $tab5 = $notebook->add("Tab 5", -label => "File Search");
+
+# Create label for directory input
+$tab5->Label(-text => "Enter directory:")->pack(-side => 'left');
+
+# Create entry for directory input
+my $dir_entry = $tab5->Entry(-width => 50);
+$dir_entry->pack(-side => 'left');
+
+# Create label for file input
+$tab5->Label(-text => "Enter file name:")->pack(-side => 'left');
+
+# Create entry for file input
+my $file_entry = $tab5->Entry(-width => 20);
+$file_entry->pack(-side => 'left');
+
+# Create button to search for file
+$tab5->Button(-text => 'Search', -command => \&search)->pack(-side => 'left');
+
+# Create output text box
+my $output = $tab5->Scrolled('Text', -scrollbars => 'se', -width => 50, -height => 15);
+$output->pack();
+
+# Set default directory to the current directory
+$dir_entry->insert(0, getcwd());
+
+# Function to search for file
+sub search {
+    my $directory = $dir_entry->get();
+    my $filename = $file_entry->get();
+
+    # Reset the output text box
+    $output->delete('1.0', 'end');
+
+    # Check if the directory exists
+    if (-d $directory) {
+        opendir(my $dh, $directory) or die "Failed to open directory: $!";
+        while (my $entry = readdir $dh) {
+            next if ($entry eq '.' or $entry eq '..');
+
+            my $filepath = "$directory/$entry";
+            if (-f $filepath && $entry eq $filename) {
+                $output->insert('end', "Found: $filepath\n");
+            }
+        }
+        closedir $dh;
+    } else {
+        $output->insert('end', "Invalid directory: $directory\n");
+    }
+}
 
 #patrick paste here
 # Create Tab 6
