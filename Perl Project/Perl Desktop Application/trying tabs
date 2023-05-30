@@ -4,6 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 use Tk;
+use Cwd;
 
 # Create the main window
 my $mw = MainWindow->new;
@@ -14,38 +15,6 @@ my $notebook = $mw->NoteBook()->pack(-fill => 'both', -expand => 1);
 
 # Create Tab 1
 my $tab1 = $notebook->add("Tab 1", -label => "File Creation");
-
-# File Name Label and Entry Widget
-$tab1->Label(-text => "File Name:")->grid(-column => 0, -row => 0);
-my $filename_entry = $tab1->Entry()->grid(-column => 1, -row => 0);
-
-# File Type Label and Entry Widget
-$tab1->Label(-text => "File Type:")->grid(-column => 0, -row => 1);
-my $filetype_entry = $tab1->Entry()->grid(-column => 1, -row => 1);
-
-# Directory Label and Entry Widget
-$tab1->Label(-text => "Directory:")->grid(-column => 0, -row => 2);
-my $directory_entry = $tab1->Entry()->grid(-column => 1, -row => 2);
-
-# Submit Button
-$tab1->Button(-text => "Create File", -command => \&create_file)->grid(-column => 0, -row => 3, -columnspan => 2);
-
-# Function to create the file
-sub create_file {
-    my $filename = $filename_entry->get();
-    my $filetype = $filetype_entry->get();
-    my $directory = $directory_entry->get();
-
-    my $filepath = $directory . "\\" . $filename . "." . $filetype;
-
-    open(my $filehandle, '>', $filepath) or die "Could not create file: $!";
-    print $filehandle "This is a new file!\n";
-    close($filehandle);
-
-    $tab1->messageBox(-message => "File created successfully!", -type => "ok");
-}
-
-# Start the Tk event loop
 
 # File Name Label and Entry Widget
 $tab1->Label(-text => "File Name:")->grid(-column => 0, -row => 0);
@@ -124,101 +93,18 @@ sub save_file {
     $tab2->messageBox(-message => "File saved successfully!", -type => "ok");
 }
 
-# Create Tab 3
-my $tab3 = $notebook->add("Tab 3", -label => "File Display");
+#alice paste here
 
-# Select File Button
-$tab3->Button(
-    -text    => "Select File",
-    -command => \&select_display_file
-)->pack(-padx => 10, -pady => 10);
+#Nebert paste here
 
-# Text Widget for File Content
-my $display_text_widget = $tab3->Text()->pack(-fill => 'both', -expand => 1);
-
-# Select Display File Function
-sub select_display_file {
-    my $fs = $mw->FileSelect(
-        -directory => '/path/to/directory',  # Replace with the desired directory path
-    );
-    my $selected_file = $fs->Show();
-    
-    if ($selected_file) {
-        open(my $fh, '<', $selected_file) or die "Could not open file: $!";
-        my @lines = <$fh>;
-        close($fh);
-
-        $display_text_widget->delete('1.0', 'end');
-        $display_text_widget->insert('1.0', @lines);
-    }
-}
-
-# Create Tab 5
-my $tab5 = $notebook->add("Tab 5", -label => "Tab 5");
-my $label5 = $tab5->Label(-text => "Content for Tab 5")->pack(-padx => 10, -pady => 10);
-# create label for directory input
-$mw->Label(-text=>"Enter directory:")->pack(-side=>'left');
-
-# create entry for directory input
-my $dir_entry = $mw->Entry(-width=>50);
-$dir_entry->pack(-side=>'left');
-
-# create label for file input
-$mw->Label(-text=>"Enter file name:")->pack(-side=>'left');
-
-# create entry for file input
-my $file_entry = $mw->Entry(-width=>20);
-$file_entry->pack(-side=>'left');
-
-# create button to search for file
-$mw->Button(-text=>'Search', -command=>\&search)->pack(-side=>'left');
-
-# create output text box
-my $output = $mw->Scrolled('Text', -scrollbars=>'se', -width=>50, -height=>15);
-$output->pack();
-
-# set default directory to current directory
-$dir_entry->insert(0, getcwd());
-
-# function to search for file
-sub
 
 # Create Tab 6
 my $tab6 = $notebook->add("Tab 6", -label => "Tab 6");
-my $label6 = $tab6->Label(-text => "Content for Tab 6")->pack(-padx => 10, -pady => 10);
+my $label6 = $tab5->Label(-text => "Content for Tab 5")->pack(-padx => 10, -pady => 10);
 
 # Create Tab 7
-my $tab6 = $notebook->add("Tab 7", -label => "Tab 7");
-my $label6 = $tab6->Label(-text => "Content for Tab 7")->pack(-padx => 10, -pady => 10);
-
-
-
-
-sub tab2_action {
-    # Action for Tab 2
-    print "Clicked Tab 2\n";
-}
-
-sub tab3_action {
-    # Action for Tab 3
-    print "Clicked Tab 3\n";
-}
-
-sub tab4_action {
-    # Action for Tab 4
-    print "Clicked Tab 4\n";
-}
-
-sub tab5_action {
-    # Action for Tab 5
-    print "Clicked Tab 5\n";
-}
-
-sub tab6_action {
-    # Action for Tab 6
-    print "Clicked Tab 6\n";
-}
+my $tab7 = $notebook->add("Tab 7", -label => "Tab 7");
+my $label7 = $tab6->Label(-text => "Content for Tab 6")->pack(-padx => 10, -pady => 10);
 
 # Start the Tk event loop
 MainLoop;
-
